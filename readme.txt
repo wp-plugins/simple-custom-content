@@ -48,7 +48,7 @@ To upgrade SCS, remove old version and replace with new version. Nothing else ne
 
 == Screenshots ==
 
-Screenshots and more info available at the [SCS Homepage](http://perishablepress.com/simple-custom-content/)
+Screenshots and more info available at the [SCS Homepage](http://perishablepress.com/simple-custom-content/#screenshots)
 
 == Changelog ==
 
