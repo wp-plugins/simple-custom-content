@@ -31,10 +31,10 @@ For each of the "all-posts" and "all-feeds" options, you can specify where you w
 
 For the shortcodes options, you basically get to add custom content for the following shortcodes:
 
-* `[scs_feed]` Ð custom content displayed wherever the shortcode is included in feed items
-* `[scs_post]` Ð custom content displayed wherever the shortcode is included in posts
-* `[scs_both]` Ð custom content displayed wherever in both posts and feeds
-* `[scs_alt]` Ð bonus shortcode that displays custom content wherever you want
+* `[scs_feed]` - custom content displayed wherever the shortcode is included in feed items
+* `[scs_post]` - custom content displayed wherever the shortcode is included in posts
+* `[scs_both]` - custom content displayed wherever in both posts and feeds
+* `[scs_alt]` - bonus shortcode that displays custom content wherever you want
 
 Additionally there is a "Restore Default Options" setting that basically does what it says.
 
