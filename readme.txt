@@ -9,9 +9,9 @@ Author: Jeff Starr
 Contributors: specialk
 Donate link: http://digwp.com/book/
 Requires at least: 3.4
-Tested up to: 3.4.2
-Stable tag: 20121024
-Version: 20121024
+Tested up to: 3.5
+Stable tag: 20130104
+Version: 20130104
 License: GPLv2 or later
 
 Simple Custom Content is the easy way to add custom content to your posts and feeds.
@@ -52,6 +52,7 @@ Screenshots and more info available at the [SCS Homepage](http://perishablepress
 
 == Changelog ==
 
+20130104: Added margins to submit buttons
 20121025: Initial plugin release
 
 == Frequently Asked Questions ==

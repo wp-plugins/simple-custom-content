@@ -5,14 +5,14 @@ Plugin URI: http://perishablepress.com/simple-custom-content/
 Description: Easily add custom content to your posts and feeds.
 Author: Jeff Starr
 Author URI: http://monzilla.biz/
-Version: 20121024
+Version: 20130104
 License: GPL v2
 Usage: Visit the plugin's settings page to add some custom conent.
 */
 
 // NO EDITING REQUIRED - PLEASE SET PREFERENCES IN THE WP ADMIN!
 
-$scs_version = '20121024';
+$scs_version = '20130104';
 $options = get_option('scs_options');
 
 // require minimum version of WordPress
@@ -253,7 +253,7 @@ function scs_render_form() {
 		#setting-error-settings_updated { margin: 10px 0 5px 0; }
 		#setting-error-settings_updated p { margin: 5px; }
 		.scs-overview { padding-left: 77px; background: url(<?php echo plugins_url(); ?>/simple-custom-content/simple-custom-content.png) no-repeat 15px 0; }
-		.button-primary { margin: 0 0 15px 15px; }
+		#scs-admin .button-primary { margin: 0 0 15px 15px; }
 		.sfs-restore  { position: relative; left: 3px; bottom: 1px; }
 		.sfs-excerpts { position: relative; left: 3px; top: 1px; }
 
