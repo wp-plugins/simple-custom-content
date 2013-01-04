@@ -52,8 +52,8 @@ Screenshots and more info available at the [SCS Homepage](http://perishablepress
 
 == Changelog ==
 
-20130104: Added margins to submit buttons
-20121025: Initial plugin release
+* 20130104: Added margins to submit buttons
+* 20121025: Initial plugin release
 
 == Frequently Asked Questions ==
 
