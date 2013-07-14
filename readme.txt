@@ -74,4 +74,4 @@ To ask a question, visit the [SCS Homepage](http://perishablepress.com/simple-cu
 
 I created this plugin with love for the WP community. To show support, consider purchasing one of my books: [The Tao of WordPress](http://wp-tao.com/), [Digging into WordPress](http://digwp.com/), or [.htaccess made easy](http://htaccessbook.com/).
 
-Links, tweets and likes also appreciated. Thanks! :)
+Links, tweets and likes also appreciated. Thank you! :)
