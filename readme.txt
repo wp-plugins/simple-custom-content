@@ -7,11 +7,11 @@ Tags: customize, content, custom-content, posts, feeds, shortcodes
 Author URI: http://monzilla.biz/
 Author: Jeff Starr
 Contributors: specialk
-Donate link: http://digwp.com/book/
+Donate link: http://m0n.co/donate
 Requires at least: 3.4
 Tested up to: 3.5
-Stable tag: 20130104
-Version: 20130104
+Stable tag: trunk
+Version: 20130713
 License: GPLv2 or later
 
 Simple Custom Content is the easy way to add custom content to your posts and feeds.
@@ -52,8 +52,19 @@ Screenshots and more info available at the [SCS Homepage](http://perishablepress
 
 == Changelog ==
 
-* 20130104: Added margins to submit buttons
-* 20121025: Initial plugin release
+**20130713**
+
+* General code check n clean
+* Improved localization support
+* Overview and Updates admin panels toggled open by default
+
+**20130104**
+
+* Added margins to submit buttons
+
+**20121025**
+
+* Initial plugin release
 
 == Frequently Asked Questions ==
 
@@ -61,6 +72,6 @@ To ask a question, visit the [SCS Homepage](http://perishablepress.com/simple-cu
 
 == Donations ==
 
-I created this plugin with love for the WP community. To show support, consider purchasing my new book, [.htaccess made easy](http://htaccessbook.com/), or my WordPress book, [Digging into WordPress](http://digwp.com/).
+I created this plugin with love for the WP community. To show support, consider purchasing one of my books: [The Tao of WordPress](http://wp-tao.com/), [Digging into WordPress](http://digwp.com/), or [.htaccess made easy](http://htaccessbook.com/).
 
 Links, tweets and likes also appreciated. Thanks! :)

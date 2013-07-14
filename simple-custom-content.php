@@ -5,14 +5,15 @@ Plugin URI: http://perishablepress.com/simple-custom-content/
 Description: Easily add custom content to your posts and feeds.
 Author: Jeff Starr
 Author URI: http://monzilla.biz/
-Version: 20130104
+Donate link: http://m0n.co/donate
+Version: 20130713
 License: GPL v2
 Usage: Visit the plugin's settings page to add some custom conent.
 */
 
 // NO EDITING REQUIRED - PLEASE SET PREFERENCES IN THE WP ADMIN!
 
-$scs_version = '20130104';
+$scs_version = '20130713';
 $options = get_option('scs_options');
 
 // require minimum version of WordPress
@@ -121,7 +122,7 @@ function scs_post_shortcode() {
 add_filter ('plugin_action_links', 'scs_plugin_action_links', 10, 2);
 function scs_plugin_action_links($links, $file) {
 	if ($file == plugin_basename(__FILE__)) {
-		$scs_links = '<a href="'. get_admin_url() .'options-general.php?page=simple-custom-content/simple-custom-content.php">'. __('Settings') .'</a>';
+		$scs_links = '<a href="'. get_admin_url() .'options-general.php?page=simple-custom-content/simple-custom-content.php">'. __('Settings', 'scs') .'</a>';
 		array_unshift($links, $scs_links);
 	}
 	return $links;
@@ -268,37 +269,38 @@ function scs_render_form() {
 	</style>
 	<div id="scs-admin" class="wrap">
 		<?php screen_icon(); ?>
-		<h2><?php _e('Simple Custom Content'); ?> <small><?php echo 'v' . $scs_version; ?></small></h2>
-		<div id="scs-toggle-panels"><a href="<?php get_admin_url() . 'options-general.php?page=simple-custom-content/simple-custom-content.php'; ?>"><?php _e('Toggle all panels'); ?></a></div>
+		<h2><?php _e('Simple Custom Content', 'scs'); ?> <small><?php echo 'v' . $scs_version; ?></small></h2>
+		<div id="scs-toggle-panels"><a href="<?php get_admin_url() . 'options-general.php?page=simple-custom-content/simple-custom-content.php'; ?>"><?php _e('Toggle all panels', 'scs'); ?></a></div>
 		<form method="post" action="options.php">
 			<?php $options = get_option('scs_options'); settings_fields('scs_plugin_options'); ?>
 			<div class="metabox-holder">	
 				<div class="meta-box-sortables ui-sortable">
 					<div id="scs-overview" class="postbox">
-						<h3><?php _e('Overview'); ?></h3>
-						<div class="toggle default-hidden">
+						<h3><?php _e('Overview', 'scs'); ?></h3>
+						<div class="toggle">
 							<div class="scs-overview">
 								<p>
-									<?php _e('<strong>Simple Custom Content</strong> (SCS) makes it easy to add custom content in your posts or feeds.'); ?>
-									<?php _e('You can add content to all posts, all feeds, or both. You can also use shortcodes to selectively include custom content in specific posts.'); ?>
+									<?php _e('<strong>Simple Custom Content</strong> (SCS) makes it easy to add custom content in your posts or feeds.', 'scs'); ?>
+									<?php _e('You can add content to all posts, all feeds, or both. You can also use shortcodes to selectively include custom content in specific posts.', 'scs'); ?>
 								</p>
 								<ul>
-									<li><?php _e('To add some custom content to your posts and feeds, visit'); ?> <a id="scs-custom-content-link" href="#scs-custom-content"><?php _e('Custom content for all posts and feeds'); ?></a>.</li>
-									<li><?php _e('To add some custom content with shortcodes, visit'); ?> <a id="scs-custom-shortcode-link" href="#scs-custom-shortcode"><?php _e('Custom content using shortcodes'); ?></a>.</li>
-									<li><?php _e('For more information check the <code>readme.txt</code> and'); ?> <a href="http://perishablepress.com/simple-custom-content/"><?php _e('SCS Homepage'); ?></a>.</li>
+									<li><?php _e('To add some custom content to your posts and feeds, visit', 'scs'); ?> <a id="scs-custom-content-link" href="#scs-custom-content"><?php _e('Custom content for all posts and feeds', 'scs'); ?></a>.</li>
+									<li><?php _e('To add some custom content with shortcodes, visit', 'scs'); ?> <a id="scs-custom-shortcode-link" href="#scs-custom-shortcode"><?php _e('Custom content using shortcodes', 'scs'); ?></a>.</li>
+									<li><?php _e('For more information check the', 'scs'); ?> <a href="<?php echo plugins_url(); ?>/simple-custom-content/readme.txt">readme.txt</a> 
+									<?php _e('and', 'scs'); ?> <a href="http://perishablepress.com/simple-custom-content/"><?php _e('SCS Homepage', 'scs'); ?></a>.</li>
 								</ul>
 							</div>
 						</div>
 					</div>
 					<div id="scs-custom-content" class="postbox">
-						<h3><?php _e('Custom content for all posts and feeds'); ?></h3>
+						<h3><?php _e('Custom content for all posts and feeds', 'scs'); ?></h3>
 						<div class="toggle<?php if (!$_GET["settings-updated"]) { echo ' default-hidden'; } ?>">
 							<p>
-								<strong><?php _e('Feeds'); ?></strong> &ndash; <label class="description" for="scs_options[scs_all_feeds]"><?php _e('Add some custom content for your feeds. You may use text and markup.'); ?></label><br />
+								<strong><?php _e('Feeds', 'scs'); ?></strong> &ndash; <label class="description" for="scs_options[scs_all_feeds]"><?php _e('Add some custom content for your feeds. You may use text and markup.', 'scs'); ?></label><br />
 								<textarea class="textarea scs-custom" cols="68" rows="5" name="scs_options[scs_all_feeds]"><?php echo esc_textarea($options['scs_all_feeds']); ?></textarea>
 							</p>
 							<div class="sfs-select-option">
-								<p><label class="description" for="scs_options[scs_location_feeds]"><?php _e('Where should this custom content be displayed?'); ?></label></p>
+								<p><label class="description" for="scs_options[scs_location_feeds]"><?php _e('Where should this custom content be displayed?', 'scs'); ?></label></p>
 								<div>
 								<?php if (!isset($checked)) $checked = '';
 									foreach ($scs_location_feeds as $option) {
@@ -316,11 +318,11 @@ function scs_render_form() {
 								</div>
 							</div>
 							<p>
-								<strong><?php _e('Posts'); ?></strong> &ndash; <label class="description" for="scs_options[scs_all_posts]"><?php _e('Add some custom content for your posts. You may use text and markup.'); ?></label><br />
+								<strong><?php _e('Posts', 'scs'); ?></strong> &ndash; <label class="description" for="scs_options[scs_all_posts]"><?php _e('Add some custom content for your posts. You may use text and markup.', 'scs'); ?></label><br />
 								<textarea class="textarea scs-custom" cols="68" rows="5" name="scs_options[scs_all_posts]"><?php echo esc_textarea($options['scs_all_posts']); ?></textarea>
 							</p>
 							<div class="sfs-select-option">
-								<p><label class="description" for="scs_options[scs_location_posts]"><?php _e('Where should this custom content be displayed?'); ?></label></p>
+								<p><label class="description" for="scs_options[scs_location_posts]"><?php _e('Where should this custom content be displayed?', 'scs'); ?></label></p>
 								<div>
 								<?php if (!isset($checked)) $checked = '';
 									foreach ($scs_location_posts as $option) {
@@ -338,56 +340,56 @@ function scs_render_form() {
 								</div>
 								<p>
 									<input name="scs_options[scs_enable_excerpts]" type="checkbox" value="1" <?php if (isset($options['scs_enable_excerpts'])) { checked('1', $options['scs_enable_excerpts']); } ?> /> 
-									<label class="description sfs-excerpts" for="scs_options[scs_enable_excerpts]"><?php _e('Enable the custom post content in excerpts?'); ?></label>
+									<label class="description sfs-excerpts" for="scs_options[scs_enable_excerpts]"><?php _e('Enable the custom post content in excerpts?', 'scs'); ?></label>
 								</p>
 							</div>
-							<input type="submit" class="button-primary" value="<?php _e('Save Settings'); ?>" />
+							<input type="submit" class="button-primary" value="<?php _e('Save Settings', 'scs'); ?>" />
 						</div>
 					</div>
 					<div id="scs-custom-shortcode" class="postbox">
-						<h3><?php _e('Custom content using shortcodes'); ?></h3>
+						<h3><?php _e('Custom content using shortcodes', 'scs'); ?></h3>
 						<div class="toggle<?php if (!$_GET["settings-updated"]) { echo ' default-hidden'; } ?>">
 							<p>
-								<strong><label class="description" for="scs_options[scs_feed_shortcode]"><?php _e('Shortcode for specific feeds'); ?></label></strong><br />
-								<?php _e('Add some custom content (text/markup) to display for the <code>[scs_feed]</code> shortcode.'); ?><br />
+								<strong><label class="description" for="scs_options[scs_feed_shortcode]"><?php _e('Shortcode for specific feeds', 'scs'); ?></label></strong><br />
+								<?php _e('Add some custom content (text/markup) to display for the <code>[scs_feed]</code> shortcode.', 'scs'); ?><br />
 								<textarea class="textarea" cols="68" rows="5" name="scs_options[scs_feed_shortcode]"><?php echo esc_textarea($options['scs_feed_shortcode']); ?></textarea>
 							</p>
 							<p>
-								<strong><label class="description" for="scs_options[scs_post_shortcode]"><?php _e('Shortcode for specific posts'); ?></label></strong><br />
-								<?php _e('Add some custom content (text/markup) to display for the <code>[scs_post]</code> shortcode.'); ?><br />
+								<strong><label class="description" for="scs_options[scs_post_shortcode]"><?php _e('Shortcode for specific posts', 'scs'); ?></label></strong><br />
+								<?php _e('Add some custom content (text/markup) to display for the <code>[scs_post]</code> shortcode.', 'scs'); ?><br />
 								<textarea class="textarea" cols="68" rows="5" name="scs_options[scs_post_shortcode]"><?php echo esc_textarea($options['scs_post_shortcode']); ?></textarea>
 							</p>
 							<p>
-								<strong><label class="description" for="scs_options[scs_both_shortcode]"><?php _e('Shortcode for feeds and posts'); ?></label></strong><br />
-								<?php _e('Add some custom content (text/markup) to display for the <code>[scs_both]</code> shortcode.'); ?><br />
+								<strong><label class="description" for="scs_options[scs_both_shortcode]"><?php _e('Shortcode for feeds and posts', 'scs'); ?></label></strong><br />
+								<?php _e('Add some custom content (text/markup) to display for the <code>[scs_both]</code> shortcode.', 'scs'); ?><br />
 								<textarea class="textarea" cols="68" rows="5" name="scs_options[scs_both_shortcode]"><?php echo esc_textarea($options['scs_both_shortcode']); ?></textarea>
 							</p>
 							<p>
-								<strong><label class="description" for="scs_options[scs_alt_shortcode]"><?php _e('Bonus shortcode for anywhere'); ?></label></strong><br />
-								<?php _e('Add some custom content (text/markup) to display for the <code>[scs_alt]</code> shortcode.'); ?><br />
+								<strong><label class="description" for="scs_options[scs_alt_shortcode]"><?php _e('Bonus shortcode for anywhere', 'scs'); ?></label></strong><br />
+								<?php _e('Add some custom content (text/markup) to display for the <code>[scs_alt]</code> shortcode.', 'scs'); ?><br />
 								<textarea class="textarea" cols="68" rows="5" name="scs_options[scs_alt_shortcode]"><?php echo esc_textarea($options['scs_alt_shortcode']); ?></textarea>
 							</p>
-							<input type="submit" class="button-primary" value="<?php _e('Save Settings'); ?>" />
+							<input type="submit" class="button-primary" value="<?php _e('Save Settings', 'scs'); ?>" />
 						</div>
 					</div>
 					<div id="scs-restore-defaults" class="postbox">
-						<h3><?php _e('Restore Default Options'); ?></h3>
+						<h3><?php _e('Restore Default Options', 'scs'); ?></h3>
 						<div class="toggle<?php if (!$_GET["settings-updated"]) { echo ' default-hidden'; } ?>">
 							<p> 
 								<input name="scs_options[default_options]" type="checkbox" value="1" id="scs_restore_defaults" <?php if (isset($options['default_options'])) { checked('1', $options['default_options']); } ?> /> 
-								<label class="description sfs-restore" for="scs_options[default_options]"><?php _e('Restore default options upon plugin deactivation/reactivation.'); ?></label>
+								<label class="description sfs-restore" for="scs_options[default_options]"><?php _e('Restore default options upon plugin deactivation/reactivation.', 'scs'); ?></label>
 							</p>
 							<p>
 								<small>
-									<?php _e('<strong>Tip:</strong> leave this option unchecked to remember your settings. Or, to go ahead and restore all default options, check the box, save your settings, and then deactivate/reactivate the plugin.'); ?>
+									<?php _e('<strong>Tip:</strong> leave this option unchecked to remember your settings. Or, to go ahead and restore all default options, check the box, save your settings, and then deactivate/reactivate the plugin.', 'scs'); ?>
 								</small>
 							</p>
-							<input type="submit" class="button-primary" value="<?php _e('Save Settings'); ?>" />
+							<input type="submit" class="button-primary" value="<?php _e('Save Settings', 'scs'); ?>" />
 						</div>
 					</div>
 					<div class="postbox">
-						<h3><?php _e('Updates &amp; Info'); ?></h3>
-						<div class="toggle default-hidden">
+						<h3><?php _e('Updates &amp; Info', 'scs'); ?></h3>
+						<div class="toggle">
 							<div id="scs-current">
 								<iframe src="http://perishablepress.com/current/index-scs.html"></iframe>
 							</div>
@@ -406,7 +408,7 @@ function scs_render_form() {
 		// prevent accidents
 		if(!jQuery("#scs_restore_defaults").is(":checked")){
 			jQuery('#scs_restore_defaults').click(function(event){
-				var r = confirm("<?php _e('Are you sure you want to restore all default options? (this action cannot be undone)'); ?>");
+				var r = confirm("<?php _e('Are you sure you want to restore all default options? (this action cannot be undone)', 'scs'); ?>");
 				if (r == true){  
 					jQuery("#scs_restore_defaults").attr('checked', true);
 				} else {
