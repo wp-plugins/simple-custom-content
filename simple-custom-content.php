@@ -6,14 +6,22 @@ Description: Easily add custom content to your posts and feeds.
 Author: Jeff Starr
 Author URI: http://monzilla.biz/
 Donate link: http://m0n.co/donate
-Version: 20130713
+Version: 20131106
 License: GPL v2
 Usage: Visit the plugin's settings page to add some custom conent.
 */
 
 // NO EDITING REQUIRED - PLEASE SET PREFERENCES IN THE WP ADMIN!
 
-$scs_version = '20130713';
+if (!defined('ABSPATH')) die();
+
+// i18n
+function scs_i18n_init() {
+	load_plugin_textdomain('scs', false, dirname(plugin_basename(__FILE__)) . '/languages');
+}
+add_action('plugins_loaded', 'scs_i18n_init');
+
+$scs_version = '20131106';
 $options = get_option('scs_options');
 
 // require minimum version of WordPress
@@ -127,6 +135,16 @@ function scs_plugin_action_links($links, $file) {
 	}
 	return $links;
 }
+
+// rate plugin link
+function add_scs_links($links, $file) {
+	if ($file == plugin_basename(__FILE__)) {
+		$rate_url = 'http://wordpress.org/support/view/plugin-reviews/' . basename(dirname(__FILE__)) . '?rate=5#postform';
+		$links[] = '<a href="' . $rate_url . '" target="_blank" title="Click here to rate and review this plugin on WordPress.org">Rate this plugin</a>';
+	}
+	return $links;
+}
+add_filter('plugin_row_meta', 'add_scs_links', 10, 2);
 
 // delete plugin settings
 function scs_delete_plugin_options() {
@@ -288,6 +306,11 @@ function scs_render_form() {
 									<li><?php _e('To add some custom content with shortcodes, visit', 'scs'); ?> <a id="scs-custom-shortcode-link" href="#scs-custom-shortcode"><?php _e('Custom content using shortcodes', 'scs'); ?></a>.</li>
 									<li><?php _e('For more information check the', 'scs'); ?> <a href="<?php echo plugins_url(); ?>/simple-custom-content/readme.txt">readme.txt</a> 
 									<?php _e('and', 'scs'); ?> <a href="http://perishablepress.com/simple-custom-content/"><?php _e('SCS Homepage', 'scs'); ?></a>.</li>
+									<li><?php _e('If you like this plugin, please', 'sbs'); ?> 
+										<a href="http://wordpress.org/support/view/plugin-reviews/<?php echo basename(dirname(__FILE__)); ?>?rate=5#postform" title="<?php _e('Click here to rate and review this plugin on WordPress.org', 'sbs'); ?>" target="_blank">
+											<?php _e('rate it at the Plugin Directory', 'sbs'); ?>&nbsp;&raquo;
+										</a>
+									</li>
 								</ul>
 							</div>
 						</div>
@@ -439,4 +462,4 @@ function scs_render_form() {
 		});
 	</script>
 
-<?php } ?>
+<?php }

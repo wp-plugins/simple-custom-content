@@ -9,9 +9,9 @@ Author: Jeff Starr
 Contributors: specialk
 Donate link: http://m0n.co/donate
 Requires at least: 3.4
-Tested up to: 3.5
+Tested up to: 3.7
 Stable tag: trunk
-Version: 20130713
+Version: 20131106
 License: GPLv2 or later
 
 Simple Custom Content is the easy way to add custom content to your posts and feeds.
@@ -51,6 +51,16 @@ To upgrade SCS, remove old version and replace with new version. Nothing else ne
 Screenshots and more info available at the [SCS Homepage](http://perishablepress.com/simple-custom-content/#screenshots)
 
 == Changelog ==
+
+**20131106**
+
+* Tested with latest version of WordPress (3.7)
+* General code cleanup and maintenance
+* Removed closing `?>` from simple-custom-content.php
+* Added line to prevent direct loading of the script
+* Added uninstall.php file
+* Added "rate this plugin" links
+* Added i18n support
 
 **20130713**
 
