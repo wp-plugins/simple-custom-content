@@ -56,6 +56,7 @@ Screenshots and more info available at the [SCS Homepage](http://perishablepress
 
 * Tested with latest version of WordPress (3.8)
 * Added trailing slash to load_plugin_textdomain()
+* Fixed 3 incorrect _e() tags in core file
 
 **20131106**
 

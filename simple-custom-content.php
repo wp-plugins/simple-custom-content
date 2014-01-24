@@ -306,9 +306,9 @@ function scs_render_form() {
 									<li><?php _e('To add some custom content with shortcodes, visit', 'scs'); ?> <a id="scs-custom-shortcode-link" href="#scs-custom-shortcode"><?php _e('Custom content using shortcodes', 'scs'); ?></a>.</li>
 									<li><?php _e('For more information check the', 'scs'); ?> <a href="<?php echo plugins_url(); ?>/simple-custom-content/readme.txt">readme.txt</a> 
 									<?php _e('and', 'scs'); ?> <a href="http://perishablepress.com/simple-custom-content/"><?php _e('SCS Homepage', 'scs'); ?></a>.</li>
-									<li><?php _e('If you like this plugin, please', 'sbs'); ?> 
-										<a href="http://wordpress.org/support/view/plugin-reviews/<?php echo basename(dirname(__FILE__)); ?>?rate=5#postform" title="<?php _e('Click here to rate and review this plugin on WordPress.org', 'sbs'); ?>" target="_blank">
-											<?php _e('rate it at the Plugin Directory', 'sbs'); ?>&nbsp;&raquo;
+									<li><?php _e('If you like this plugin, please', 'scs'); ?> 
+										<a href="http://wordpress.org/support/view/plugin-reviews/<?php echo basename(dirname(__FILE__)); ?>?rate=5#postform" title="<?php _e('Click here to rate and review this plugin on WordPress.org', 'scs'); ?>" target="_blank">
+											<?php _e('rate it at the Plugin Directory', 'scs'); ?>&nbsp;&raquo;
 										</a>
 									</li>
 								</ul>
