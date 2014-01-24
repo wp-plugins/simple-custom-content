@@ -6,7 +6,7 @@ Description: Easily add custom content to your posts and feeds.
 Author: Jeff Starr
 Author URI: http://monzilla.biz/
 Donate link: http://m0n.co/donate
-Version: 20131106
+Version: 20140123
 License: GPL v2
 Usage: Visit the plugin's settings page to add some custom conent.
 */
@@ -17,11 +17,11 @@ if (!defined('ABSPATH')) die();
 
 // i18n
 function scs_i18n_init() {
-	load_plugin_textdomain('scs', false, dirname(plugin_basename(__FILE__)) . '/languages');
+	load_plugin_textdomain('scs', false, dirname(plugin_basename(__FILE__)) . '/languages/');
 }
 add_action('plugins_loaded', 'scs_i18n_init');
 
-$scs_version = '20131106';
+$scs_version = '20140123';
 $options = get_option('scs_options');
 
 // require minimum version of WordPress
