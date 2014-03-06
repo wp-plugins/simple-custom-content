@@ -11,7 +11,7 @@ Donate link: http://m0n.co/donate
 Requires at least: 3.4
 Tested up to: 3.8
 Stable tag: trunk
-Version: 20140123
+Version: 20140305
 License: GPLv2 or later
 
 Simple Custom Content is the easy way to add custom content to your posts and feeds.
@@ -51,6 +51,10 @@ To upgrade SCS, remove old version and replace with new version. Nothing else ne
 Screenshots and more info available at the [SCS Homepage](http://perishablepress.com/simple-custom-content/#screenshots)
 
 == Changelog ==
+
+**20140305**
+
+* Bugfix: now using isset() for toggling admin panel custom classes, resolves PHP error "undefined index"
 
 **20140123**
 

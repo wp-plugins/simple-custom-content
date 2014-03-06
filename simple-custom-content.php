@@ -6,12 +6,10 @@ Description: Easily add custom content to your posts and feeds.
 Author: Jeff Starr
 Author URI: http://monzilla.biz/
 Donate link: http://m0n.co/donate
-Version: 20140123
+Version: 20140305
 License: GPL v2
 Usage: Visit the plugin's settings page to add some custom conent.
 */
-
-// NO EDITING REQUIRED - PLEASE SET PREFERENCES IN THE WP ADMIN!
 
 if (!defined('ABSPATH')) die();
 
@@ -21,7 +19,7 @@ function scs_i18n_init() {
 }
 add_action('plugins_loaded', 'scs_i18n_init');
 
-$scs_version = '20140123';
+$scs_version = '20140305';
 $options = get_option('scs_options');
 
 // require minimum version of WordPress
@@ -317,7 +315,7 @@ function scs_render_form() {
 					</div>
 					<div id="scs-custom-content" class="postbox">
 						<h3><?php _e('Custom content for all posts and feeds', 'scs'); ?></h3>
-						<div class="toggle<?php if (!$_GET["settings-updated"]) { echo ' default-hidden'; } ?>">
+						<div class="toggle<?php if (!isset($_GET["settings-updated"])) { echo ' default-hidden'; } ?>">
 							<p>
 								<strong><?php _e('Feeds', 'scs'); ?></strong> &ndash; <label class="description" for="scs_options[scs_all_feeds]"><?php _e('Add some custom content for your feeds. You may use text and markup.', 'scs'); ?></label><br />
 								<textarea class="textarea scs-custom" cols="68" rows="5" name="scs_options[scs_all_feeds]"><?php echo esc_textarea($options['scs_all_feeds']); ?></textarea>
@@ -371,7 +369,7 @@ function scs_render_form() {
 					</div>
 					<div id="scs-custom-shortcode" class="postbox">
 						<h3><?php _e('Custom content using shortcodes', 'scs'); ?></h3>
-						<div class="toggle<?php if (!$_GET["settings-updated"]) { echo ' default-hidden'; } ?>">
+						<div class="toggle<?php if (!isset($_GET["settings-updated"])) { echo ' default-hidden'; } ?>">
 							<p>
 								<strong><label class="description" for="scs_options[scs_feed_shortcode]"><?php _e('Shortcode for specific feeds', 'scs'); ?></label></strong><br />
 								<?php _e('Add some custom content (text/markup) to display for the <code>[scs_feed]</code> shortcode.', 'scs'); ?><br />
@@ -397,7 +395,7 @@ function scs_render_form() {
 					</div>
 					<div id="scs-restore-defaults" class="postbox">
 						<h3><?php _e('Restore Default Options', 'scs'); ?></h3>
-						<div class="toggle<?php if (!$_GET["settings-updated"]) { echo ' default-hidden'; } ?>">
+						<div class="toggle<?php if (!isset($_GET["settings-updated"])) { echo ' default-hidden'; } ?>">
 							<p> 
 								<input name="scs_options[default_options]" type="checkbox" value="1" id="scs_restore_defaults" <?php if (isset($options['default_options'])) { checked('1', $options['default_options']); } ?> /> 
 								<label class="description sfs-restore" for="scs_options[default_options]"><?php _e('Restore default options upon plugin deactivation/reactivation.', 'scs'); ?></label>
