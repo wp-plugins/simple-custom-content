@@ -6,12 +6,15 @@ Description: Easily add custom content to your posts and feeds.
 Author: Jeff Starr
 Author URI: http://monzilla.biz/
 Donate link: http://m0n.co/donate
-Version: 20140305
+Version: 20140925
 License: GPL v2
 Usage: Visit the plugin's settings page to add some custom conent.
 */
 
 if (!defined('ABSPATH')) die();
+
+$scs_version = '20140925';
+$options = get_option('scs_options');
 
 // i18n
 function scs_i18n_init() {
@@ -19,24 +22,23 @@ function scs_i18n_init() {
 }
 add_action('plugins_loaded', 'scs_i18n_init');
 
-$scs_version = '20140305';
-$options = get_option('scs_options');
-
 // require minimum version of WordPress
-add_action('admin_init', 'require_wp_version');
 function require_wp_version() {
 	global $wp_version;
 	$plugin = plugin_basename(__FILE__);
 	$plugin_data = get_plugin_data(__FILE__, false);
 
-	if (version_compare($wp_version, "3.3", "<")) {
+	if (version_compare($wp_version, "3.7", "<")) {
 		if (is_plugin_active($plugin)) {
 			deactivate_plugins($plugin);
-			$msg =  '<p><strong>' . $plugin_data['Name'] . '</strong> requires WordPress 3.3 or higher, and has been deactivated!</p>';
+			$msg =  '<p><strong>' . $plugin_data['Name'] . '</strong> requires WordPress 3.7 or higher, and has been deactivated!</p>';
 			$msg .= '<p>Please upgrade WordPress and try again.</p><p>Return to the <a href="' .admin_url() . '">WordPress Admin area</a>.</p>';
 			wp_die($msg);
 		}
 	}
+}
+if (isset($_GET['activate']) && $_GET['activate'] == 'true') {
+	add_action('admin_init', 'require_wp_version');
 }
 
 // custom content in all feeds

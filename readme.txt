@@ -8,10 +8,10 @@ Author URI: http://monzilla.biz/
 Author: Jeff Starr
 Contributors: specialk
 Donate link: http://m0n.co/donate
-Requires at least: 3.4
-Tested up to: 3.8
+Requires at least: 3.7
+Tested up to: 4.0
 Stable tag: trunk
-Version: 20140305
+Version: 20140925
 License: GPLv2 or later
 
 Simple Custom Content is the easy way to add custom content to your posts and feeds.
@@ -51,6 +51,12 @@ To upgrade SCS, remove old version and replace with new version. Nothing else ne
 Screenshots and more info available at the [SCS Homepage](http://perishablepress.com/simple-custom-content/#screenshots)
 
 == Changelog ==
+
+**20140925**
+
+* Tested on latest version of WordPress (4.0)
+* Increased min-version requirement to WP 3.7
+* Added conditional check for min-version function
 
 **20140305**
 
