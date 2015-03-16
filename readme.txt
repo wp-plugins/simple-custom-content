@@ -4,15 +4,17 @@ Plugin Name: Simple Custom Content
 Plugin URI: http://perishablepress.com/simple-custom-content/
 Description: Easily add custom content to your posts and feeds.
 Tags: customize, content, custom-content, posts, feeds, shortcodes
-Author URI: http://monzilla.biz/
 Author: Jeff Starr
-Contributors: specialk
+Author URI: http://monzilla.biz/
 Donate link: http://m0n.co/donate
-Requires at least: 3.7
-Tested up to: 4.0
+Contributors: specialk
+Requires at least: 3.8
+Tested up to: 4.1
 Stable tag: trunk
-Version: 20140925
-License: GPLv2 or later
+Version: 20150315
+Text Domain: scc
+Domain Path: /languages/
+License: GPL v2 or later
 
 Simple Custom Content is the easy way to add custom content to your posts and feeds.
 
@@ -51,6 +53,20 @@ To upgrade SCS, remove old version and replace with new version. Nothing else ne
 Screenshots and more info available at the [SCS Homepage](http://perishablepress.com/simple-custom-content/#screenshots)
 
 == Changelog ==
+
+**20150315**
+
+* Tested with latest version of WP (4.1)
+* Increased minimum version to WP 3.8
+* Renamed plugin title in WP menu
+* Removed deprecated screen_icon()
+* Added Text Domain and Domain Path to file header
+* Added $scs_wp_vers for minimum version check
+* Streamline/fine-tune plugin code
+* Changed text domain from scs to scc
+* Added .pot translation template in /languages/
+* Added $allowedposttags to wp_kses() validation
+* Exclude pages from simple_custom_content_posts()
 
 **20140925**
 
@@ -98,6 +114,11 @@ To ask a question, visit the [SCS Homepage](http://perishablepress.com/simple-cu
 
 == Donations ==
 
-I created this plugin with love for the WP community. To show support, consider purchasing one of my books: [The Tao of WordPress](http://wp-tao.com/), [Digging into WordPress](http://digwp.com/), or [.htaccess made easy](http://htaccessbook.com/).
+I created this plugin with love for the WP community. To show support, you can [make a donation](http://m0n.co/donate) or purchase one of my books: 
 
-Links, tweets and likes also appreciated. Thank you! :)
+* [The Tao of WordPress](http://wp-tao.com/)
+* [Digging into WordPress](http://digwp.com/)
+* [.htaccess made easy](http://htaccessbook.com/)
+* [WordPress Themes In Depth](http://wp-tao.com/wordpress-themes-book/)
+
+Links, tweets and likes also appreciated. Thanks! :)

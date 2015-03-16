@@ -1,38 +1,43 @@
 <?php
 /*
-Plugin Name: Simple Custom Content
-Plugin URI: http://perishablepress.com/simple-custom-content/
-Description: Easily add custom content to your posts and feeds.
-Author: Jeff Starr
-Author URI: http://monzilla.biz/
-Donate link: http://m0n.co/donate
-Version: 20140925
-License: GPL v2
-Usage: Visit the plugin's settings page to add some custom conent.
+	Plugin Name: Simple Custom Content
+	Plugin URI: http://perishablepress.com/simple-custom-content/
+	Description: Easily add custom content to your posts and feeds.
+	Tags: customize, content, custom-content, posts, feeds, shortcodes
+	Author: Jeff Starr
+	Author URI: http://monzilla.biz/
+	Donate link: http://m0n.co/donate
+	Contributors: specialk
+	Requires at least: 3.8
+	Tested up to: 4.1
+	Stable tag: trunk
+	Version: 20150315
+	Text Domain: scc
+	Domain Path: /languages/
+	License: GPL v2 or later
 */
 
 if (!defined('ABSPATH')) die();
 
-$scs_version = '20140925';
+$scs_wp_vers = '3.8';
+$scs_version = '20150315';
 $options = get_option('scs_options');
 
-// i18n
 function scs_i18n_init() {
-	load_plugin_textdomain('scs', false, dirname(plugin_basename(__FILE__)) . '/languages/');
+	load_plugin_textdomain('scc', false, dirname(plugin_basename(__FILE__)) . '/languages/');
 }
 add_action('plugins_loaded', 'scs_i18n_init');
 
-// require minimum version of WordPress
 function require_wp_version() {
-	global $wp_version;
+	global $wp_version, $scs_wp_vers;
 	$plugin = plugin_basename(__FILE__);
 	$plugin_data = get_plugin_data(__FILE__, false);
 
-	if (version_compare($wp_version, "3.7", "<")) {
+	if (version_compare($wp_version, $scs_wp_vers, '<')) {
 		if (is_plugin_active($plugin)) {
 			deactivate_plugins($plugin);
-			$msg =  '<p><strong>' . $plugin_data['Name'] . '</strong> requires WordPress 3.7 or higher, and has been deactivated!</p>';
-			$msg .= '<p>Please upgrade WordPress and try again.</p><p>Return to the <a href="' .admin_url() . '">WordPress Admin area</a>.</p>';
+			$msg  = '<p><strong>'. $plugin_data['Name'] .'</strong> '. __('requires WordPress ', 'scs') . $scs_wp_vers . __(' or higher, and has been deactivated!', 'scs') .'<br />';
+			$msg .= __('Please upgrade WordPress and try again. Return to the', 'scs') .' <a href="'. admin_url() .'">'. __('WordPress Admin area', 'scs') .'</a>.</p>';
 			wp_die($msg);
 		}
 	}
@@ -42,9 +47,6 @@ if (isset($_GET['activate']) && $_GET['activate'] == 'true') {
 }
 
 // custom content in all feeds
-if ($options['scs_location_feeds'] !== 'scs_feed_none') {
-	add_filter('the_excerpt_rss', 'simple_custom_content_feeds');
-}
 function simple_custom_content_feeds($content) {
 	$options = get_option('scs_options');
 	$custom = $options['scs_all_feeds'];
@@ -63,19 +65,16 @@ function simple_custom_content_feeds($content) {
 		return $content;
 	}
 }
+if ($options['scs_location_feeds'] !== 'scs_feed_none') {
+	add_filter('the_excerpt_rss', 'simple_custom_content_feeds');
+}
 
 // custom content in all posts
-if ($options['scs_location_posts'] !== 'scs_feed_none') {
-	add_filter('the_content', 'simple_custom_content_posts');
-}
-if ($options['scs_enable_excerpts'] !== 0) {
-	add_filter('the_excerpt', 'simple_custom_content_posts');
-}
 function simple_custom_content_posts($content) {
 	$options = get_option('scs_options');
 	$custom = $options['scs_all_posts'];
 	$location = $options['scs_location_posts'];
-	if (!is_feed()) {
+	if (!is_feed() && !is_page()) {
 		if ($location == 'scs_post_after') {
 			return $content . $custom;
 		} elseif ($location == 'scs_post_before') {
@@ -89,23 +88,28 @@ function simple_custom_content_posts($content) {
 		return $content;
 	}
 }
+if ($options['scs_location_posts'] !== 'scs_feed_none') {
+	add_filter('the_content', 'simple_custom_content_posts');
+}
+if ($options['scs_enable_excerpts'] !== 0) {
+	add_filter('the_excerpt', 'simple_custom_content_posts');
+}
 
 // SCS alt shortcode
-add_shortcode('scs_alt','scs_alt_shortcode');
 function scs_alt_shortcode() { 
 	$options = get_option('scs_options');
 	return $options['scs_alt_shortcode'];
 }
+add_shortcode('scs_alt','scs_alt_shortcode');
 
 // SCS both shortcode
-add_shortcode('scs_both','scs_both_shortcode');
 function scs_both_shortcode() { 
 	$options = get_option('scs_options');
 	return $options['scs_both_shortcode'];
 }
+add_shortcode('scs_both','scs_both_shortcode');
 
 // SCS feed shortcode
-add_shortcode('scs_feed','scs_feed_shortcode');
 function scs_feed_shortcode() { 
 	$options = get_option('scs_options');
 	if (is_feed()) {
@@ -114,9 +118,9 @@ function scs_feed_shortcode() {
 		return '';
 	}
 }
+add_shortcode('scs_feed','scs_feed_shortcode');
 
 // SCS post shortcode
-add_shortcode('scs_post','scs_post_shortcode');
 function scs_post_shortcode() { 
 	$options = get_option('scs_options');
 	if (!is_feed()) {
@@ -125,9 +129,8 @@ function scs_post_shortcode() {
 		return '';
 	}
 }
+add_shortcode('scs_post','scs_post_shortcode');
 
-// display settings link on plugin page
-add_filter ('plugin_action_links', 'scs_plugin_action_links', 10, 2);
 function scs_plugin_action_links($links, $file) {
 	if ($file == plugin_basename(__FILE__)) {
 		$scs_links = '<a href="'. get_admin_url() .'options-general.php?page=simple-custom-content/simple-custom-content.php">'. __('Settings', 'scs') .'</a>';
@@ -135,8 +138,8 @@ function scs_plugin_action_links($links, $file) {
 	}
 	return $links;
 }
+add_filter ('plugin_action_links', 'scs_plugin_action_links', 10, 2);
 
-// rate plugin link
 function add_scs_links($links, $file) {
 	if ($file == plugin_basename(__FILE__)) {
 		$rate_url = 'http://wordpress.org/support/view/plugin-reviews/' . basename(dirname(__FILE__)) . '?rate=5#postform';
@@ -146,7 +149,6 @@ function add_scs_links($links, $file) {
 }
 add_filter('plugin_row_meta', 'add_scs_links', 10, 2);
 
-// delete plugin settings
 function scs_delete_plugin_options() {
 	delete_option('scs_options');
 }
@@ -154,8 +156,6 @@ if ($options['default_options'] == 1) {
 	register_uninstall_hook (__FILE__, 'scs_delete_plugin_options');
 }
 
-// define default settings
-register_activation_hook (__FILE__, 'scs_add_defaults');
 function scs_add_defaults() {
 	$tmp = get_option('scs_options');
 	if(($tmp['default_options'] == '1') || (!is_array($tmp))) {
@@ -174,8 +174,8 @@ function scs_add_defaults() {
 		update_option('scs_options', $arr);
 	}
 }
+register_activation_hook (__FILE__, 'scs_add_defaults');
 
-// feed locations 
 $scs_location_feeds = array(
 	'scs_feed_after' => array(
 		'value' => 'scs_feed_after',
@@ -195,7 +195,6 @@ $scs_location_feeds = array(
 	),
 );
 
-// post locations 
 $scs_location_posts = array(
 	'scs_post_after' => array(
 		'value' => 'scs_post_after',
@@ -215,23 +214,69 @@ $scs_location_posts = array(
 	),
 );
 
-// whitelist settings
-add_action ('admin_init', 'scs_init');
 function scs_init() {
 	register_setting('scs_plugin_options', 'scs_options', 'scs_validate_options');
 }
+add_action ('admin_init', 'scs_init');
 
-// sanitize and validate input
 function scs_validate_options($input) {
 	global $scs_location_feeds, $scs_location_posts;
-
-	$input['scs_all_feeds'] = wp_kses_post($input['scs_all_feeds']);
-	$input['scs_all_posts'] = wp_kses_post($input['scs_all_posts']);
 	
-	$input['scs_alt_shortcode'] = wp_kses_post($input['scs_alt_shortcode']);
-	$input['scs_both_shortcode'] = wp_kses_post($input['scs_both_shortcode']);
-	$input['scs_feed_shortcode'] = wp_kses_post($input['scs_feed_shortcode']);
-	$input['scs_post_shortcode'] = wp_kses_post($input['scs_post_shortcode']);
+	// dealing with kses
+			$allowed_atts = array(
+				'align'      => array(), 
+				'class'      => array(), 
+				'type'       => array(), 
+				'id'         => array(), 
+				'dir'        => array(), 
+				'lang'       => array(), 
+				'style'      => array(), 
+				'xml:lang'   => array(), 
+				'src'        => array(), 
+				'alt'        => array(),
+				'href'       => array(), 
+				'rel'        => array(), 
+				'target'     => array(),
+				'novalidate' => array(),
+				'style'      => array(),
+				'type'       => array(),
+				'value'      => array(),
+				'name'       => array(),
+				'tabindex'   => array(),
+				'action'     => array(),
+				'method'     => array(),
+				'for'        => array(),
+			);
+			$allowedposttags['form'] = $allowed_atts;
+			$allowedposttags['label'] = $allowed_atts;
+			$allowedposttags['input'] = $allowed_atts;
+			$allowedposttags['script'] = $allowed_atts;
+			$allowedposttags['strong'] = $allowed_atts;
+			$allowedposttags['small'] = $allowed_atts;
+			$allowedposttags['span'] = $allowed_atts;
+			$allowedposttags['abbr'] = $allowed_atts;
+			$allowedposttags['code'] = $allowed_atts;
+			$allowedposttags['div'] = $allowed_atts;
+			$allowedposttags['img'] = $allowed_atts;
+			$allowedposttags['h1'] = $allowed_atts;
+			$allowedposttags['h2'] = $allowed_atts;
+			$allowedposttags['h3'] = $allowed_atts;
+			$allowedposttags['h4'] = $allowed_atts;
+			$allowedposttags['h5'] = $allowed_atts;
+			$allowedposttags['ol'] = $allowed_atts;
+			$allowedposttags['ul'] = $allowed_atts;
+			$allowedposttags['li'] = $allowed_atts;
+			$allowedposttags['em'] = $allowed_atts;
+			$allowedposttags['p'] = $allowed_atts;
+			$allowedposttags['a'] = $allowed_atts;
+	
+	$input['scs_all_feeds'] = wp_kses($input['scs_all_feeds'], $allowedposttags);
+	$input['scs_all_posts'] = wp_kses($input['scs_all_posts'], $allowedposttags);
+	
+	$input['scs_alt_shortcode']  = wp_kses($input['scs_alt_shortcode'],  $allowedposttags);
+	$input['scs_both_shortcode'] = wp_kses($input['scs_both_shortcode'], $allowedposttags);
+	$input['scs_feed_shortcode'] = wp_kses($input['scs_feed_shortcode'], $allowedposttags);
+	$input['scs_post_shortcode'] = wp_kses($input['scs_post_shortcode'], $allowedposttags);
 			
 	if (!isset($input['scs_location_feeds'])) $input['scs_location_feeds'] = null;
 	if (!array_key_exists($input['scs_location_feeds'], $scs_location_feeds)) $input['scs_location_feeds'] = null;
@@ -248,13 +293,11 @@ function scs_validate_options($input) {
 	return $input;
 }
 
-// add the options page
-add_action ('admin_menu', 'scs_add_options_page');
 function scs_add_options_page() {
-	add_options_page('Simple Custom Content', 'SCS', 'manage_options', __FILE__, 'scs_render_form');
+	add_options_page('Simple Custom Content', 'SCC', 'manage_options', __FILE__, 'scs_render_form');
 }
+add_action ('admin_menu', 'scs_add_options_page');
 
-// create the options page
 function scs_render_form() {
 	global $scs_version, $scs_location_feeds, $scs_location_posts; ?>
 
@@ -286,7 +329,6 @@ function scs_render_form() {
 		#scs-current iframe { width: 100%; height: 100%; overflow: hidden; margin: 0; padding: 0; }
 	</style>
 	<div id="scs-admin" class="wrap">
-		<?php screen_icon(); ?>
 		<h2><?php _e('Simple Custom Content', 'scs'); ?> <small><?php echo 'v' . $scs_version; ?></small></h2>
 		<div id="scs-toggle-panels"><a href="<?php get_admin_url() . 'options-general.php?page=simple-custom-content/simple-custom-content.php'; ?>"><?php _e('Toggle all panels', 'scs'); ?></a></div>
 		<form method="post" action="options.php">
@@ -304,8 +346,10 @@ function scs_render_form() {
 								<ul>
 									<li><?php _e('To add some custom content to your posts and feeds, visit', 'scs'); ?> <a id="scs-custom-content-link" href="#scs-custom-content"><?php _e('Custom content for all posts and feeds', 'scs'); ?></a>.</li>
 									<li><?php _e('To add some custom content with shortcodes, visit', 'scs'); ?> <a id="scs-custom-shortcode-link" href="#scs-custom-shortcode"><?php _e('Custom content using shortcodes', 'scs'); ?></a>.</li>
-									<li><?php _e('For more information check the', 'scs'); ?> <a href="<?php echo plugins_url(); ?>/simple-custom-content/readme.txt">readme.txt</a> 
-									<?php _e('and', 'scs'); ?> <a href="http://perishablepress.com/simple-custom-content/"><?php _e('SCS Homepage', 'scs'); ?></a>.</li>
+									<li>
+										<?php _e('For more information check the', 'scs'); ?> <a target="_blank" href="<?php echo plugins_url('/simple-custom-content/readme.txt', dirname(__FILE__)); ?>">readme.txt</a> 
+										<?php _e('and', 'scs'); ?> <a target="_blank" href="http://perishablepress.com/simple-custom-content/"><?php _e('SCS Homepage', 'scs'); ?></a>.
+									</li>
 									<li><?php _e('If you like this plugin, please', 'scs'); ?> 
 										<a href="http://wordpress.org/support/view/plugin-reviews/<?php echo basename(dirname(__FILE__)); ?>?rate=5#postform" title="<?php _e('Click here to rate and review this plugin on WordPress.org', 'scs'); ?>" target="_blank">
 											<?php _e('rate it at the Plugin Directory', 'scs'); ?>&nbsp;&raquo;

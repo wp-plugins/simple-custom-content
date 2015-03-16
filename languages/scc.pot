@@ -1,0 +1,203 @@
+# Loco Gettext template
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Simple Custom Content\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: Sun Mar 15 2015 23:55:42 GMT-0700 (PDT)\n"
+"POT-Revision-Date: Sun Mar 15 2015 23:55:44 GMT-0700 (PDT)\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#: ../simple-custom-content.php:39
+msgid "requires WordPress "
+msgstr ""
+
+#: ../simple-custom-content.php:39
+msgid " or higher, and has been deactivated!"
+msgstr ""
+
+#: ../simple-custom-content.php:40
+msgid "Please upgrade WordPress and try again. Return to the"
+msgstr ""
+
+#: ../simple-custom-content.php:40
+msgid "WordPress Admin area"
+msgstr ""
+
+#: ../simple-custom-content.php:136
+msgid "Settings"
+msgstr ""
+
+#: ../simple-custom-content.php:284
+msgid "Simple Custom Content"
+msgstr ""
+
+#: ../simple-custom-content.php:285
+msgid "Toggle all panels"
+msgstr ""
+
+#: ../simple-custom-content.php:291
+msgid "Overview"
+msgstr ""
+
+#: ../simple-custom-content.php:295
+msgid ""
+"<strong>Simple Custom Content</strong> (SCS) makes it easy to add custom "
+"content in your posts or feeds."
+msgstr ""
+
+#: ../simple-custom-content.php:296
+msgid ""
+"You can add content to all posts, all feeds, or both. You can also use "
+"shortcodes to selectively include custom content in specific posts."
+msgstr ""
+
+#: ../simple-custom-content.php:299
+msgid "To add some custom content to your posts and feeds, visit"
+msgstr ""
+
+#: ../simple-custom-content.php:299 ../simple-custom-content.php:313
+msgid "Custom content for all posts and feeds"
+msgstr ""
+
+#: ../simple-custom-content.php:300
+msgid "To add some custom content with shortcodes, visit"
+msgstr ""
+
+#: ../simple-custom-content.php:300 ../simple-custom-content.php:367
+msgid "Custom content using shortcodes"
+msgstr ""
+
+#: ../simple-custom-content.php:301
+msgid "For more information check the"
+msgstr ""
+
+#: ../simple-custom-content.php:302
+msgid "and"
+msgstr ""
+
+#: ../simple-custom-content.php:302
+msgid "SCS Homepage"
+msgstr ""
+
+#: ../simple-custom-content.php:303
+msgid "If you like this plugin, please"
+msgstr ""
+
+#: ../simple-custom-content.php:304
+msgid "Click here to rate and review this plugin on WordPress.org"
+msgstr ""
+
+#: ../simple-custom-content.php:305
+msgid "rate it at the Plugin Directory"
+msgstr ""
+
+#: ../simple-custom-content.php:316
+msgid "Feeds"
+msgstr ""
+
+#: ../simple-custom-content.php:316
+msgid "Add some custom content for your feeds. You may use text and markup."
+msgstr ""
+
+#: ../simple-custom-content.php:320 ../simple-custom-content.php:342
+msgid "Where should this custom content be displayed?"
+msgstr ""
+
+#: ../simple-custom-content.php:338
+msgid "Posts"
+msgstr ""
+
+#: ../simple-custom-content.php:338
+msgid "Add some custom content for your posts. You may use text and markup."
+msgstr ""
+
+#: ../simple-custom-content.php:360
+msgid "Enable the custom post content in excerpts?"
+msgstr ""
+
+#: ../simple-custom-content.php:363 ../simple-custom-content.php:389 ../simple-
+#: custom-content.php:404
+msgid "Save Settings"
+msgstr ""
+
+#: ../simple-custom-content.php:370
+msgid "Shortcode for specific feeds"
+msgstr ""
+
+#: ../simple-custom-content.php:371
+msgid ""
+"Add some custom content (text/markup) to display for the "
+"<code>[scs_feed]</code> shortcode."
+msgstr ""
+
+#: ../simple-custom-content.php:375
+msgid "Shortcode for specific posts"
+msgstr ""
+
+#: ../simple-custom-content.php:376
+msgid ""
+"Add some custom content (text/markup) to display for the "
+"<code>[scs_post]</code> shortcode."
+msgstr ""
+
+#: ../simple-custom-content.php:380
+msgid "Shortcode for feeds and posts"
+msgstr ""
+
+#: ../simple-custom-content.php:381
+msgid ""
+"Add some custom content (text/markup) to display for the "
+"<code>[scs_both]</code> shortcode."
+msgstr ""
+
+#: ../simple-custom-content.php:385
+msgid "Bonus shortcode for anywhere"
+msgstr ""
+
+#: ../simple-custom-content.php:386
+msgid ""
+"Add some custom content (text/markup) to display for the "
+"<code>[scs_alt]</code> shortcode."
+msgstr ""
+
+#: ../simple-custom-content.php:393
+msgid "Restore Default Options"
+msgstr ""
+
+#: ../simple-custom-content.php:397
+msgid "Restore default options upon plugin deactivation/reactivation."
+msgstr ""
+
+#: ../simple-custom-content.php:401
+msgid ""
+"<strong>Tip:</strong> leave this option unchecked to remember your settings. "
+"Or, to go ahead and restore all default options, check the box, save your "
+"settings, and then deactivate/reactivate the plugin."
+msgstr ""
+
+#: ../simple-custom-content.php:408
+msgid "Updates &amp; Info"
+msgstr ""
+
+#: ../simple-custom-content.php:428
+msgid ""
+"Are you sure you want to restore all default options? (this action cannot be "
+"undone)"
+msgstr ""
