@@ -1,17 +1,17 @@
 <?php
 /*
 	Plugin Name: Simple Custom Content
-	Plugin URI: http://perishablepress.com/simple-custom-content/
+	Plugin URI: https://perishablepress.com/simple-custom-content/
 	Description: Easily add custom content to your posts and feeds.
 	Tags: customize, content, custom-content, posts, feeds, shortcodes
 	Author: Jeff Starr
 	Author URI: http://monzilla.biz/
 	Donate link: http://m0n.co/donate
 	Contributors: specialk
-	Requires at least: 3.8
-	Tested up to: 4.1
+	Requires at least: 3.9
+	Tested up to: 4.2
 	Stable tag: trunk
-	Version: 20150315
+	Version: 20150507
 	Text Domain: scc
 	Domain Path: /languages/
 	License: GPL v2 or later
@@ -19,8 +19,8 @@
 
 if (!defined('ABSPATH')) die();
 
-$scs_wp_vers = '3.8';
-$scs_version = '20150315';
+$scs_wp_vers = '3.9';
+$scs_version = '20150507';
 $options = get_option('scs_options');
 
 function scs_i18n_init() {
@@ -348,7 +348,7 @@ function scs_render_form() {
 									<li><?php _e('To add some custom content with shortcodes, visit', 'scs'); ?> <a id="scs-custom-shortcode-link" href="#scs-custom-shortcode"><?php _e('Custom content using shortcodes', 'scs'); ?></a>.</li>
 									<li>
 										<?php _e('For more information check the', 'scs'); ?> <a target="_blank" href="<?php echo plugins_url('/simple-custom-content/readme.txt', dirname(__FILE__)); ?>">readme.txt</a> 
-										<?php _e('and', 'scs'); ?> <a target="_blank" href="http://perishablepress.com/simple-custom-content/"><?php _e('SCS Homepage', 'scs'); ?></a>.
+										<?php _e('and', 'scs'); ?> <a target="_blank" href="https://perishablepress.com/simple-custom-content/"><?php _e('SCS Homepage', 'scs'); ?></a>.
 									</li>
 									<li><?php _e('If you like this plugin, please', 'scs'); ?> 
 										<a href="http://wordpress.org/support/view/plugin-reviews/<?php echo basename(dirname(__FILE__)); ?>?rate=5#postform" title="<?php _e('Click here to rate and review this plugin on WordPress.org', 'scs'); ?>" target="_blank">
@@ -458,15 +458,15 @@ function scs_render_form() {
 						<h3><?php _e('Updates &amp; Info', 'scs'); ?></h3>
 						<div class="toggle">
 							<div id="scs-current">
-								<iframe src="http://perishablepress.com/current/index-scs.html"></iframe>
+								<iframe src="https://perishablepress.com/current/index-scs.html"></iframe>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div id="scs-credit-info">
-				<a target="_blank" href="http://perishablepress.com/simple-custom-content/" title="Simple Custom Content Homepage">Simple Custom Content</a> by 
-				<a target="_blank" href="http://twitter.com/perishable" title="Jeff Starr on Twitter">Jeff Starr</a> @ 
+				<a target="_blank" href="https://perishablepress.com/simple-custom-content/" title="Simple Custom Content Homepage">Simple Custom Content</a> by 
+				<a target="_blank" href="https://twitter.com/perishable" title="Jeff Starr on Twitter">Jeff Starr</a> @ 
 				<a target="_blank" href="http://monzilla.biz/" title="Obsessive Web Design &amp; Development">Monzilla Media</a>
 			</div>
 		</form>

@@ -1,17 +1,17 @@
 === Simple Custom Content ===
 
 Plugin Name: Simple Custom Content
-Plugin URI: http://perishablepress.com/simple-custom-content/
+Plugin URI: https://perishablepress.com/simple-custom-content/
 Description: Easily add custom content to your posts and feeds.
 Tags: customize, content, custom-content, posts, feeds, shortcodes
 Author: Jeff Starr
 Author URI: http://monzilla.biz/
 Donate link: http://m0n.co/donate
 Contributors: specialk
-Requires at least: 3.8
-Tested up to: 4.1
+Requires at least: 3.9
+Tested up to: 4.2
 Stable tag: trunk
-Version: 20150315
+Version: 20150507
 Text Domain: scc
 Domain Path: /languages/
 License: GPL v2 or later
@@ -20,7 +20,7 @@ Simple Custom Content is the easy way to add custom content to your posts and fe
 
 == Description ==
 
-[Simple Custom Content](http://perishablepress.com/simple-custom-content/) enables you to add custom content to all of your posts and all of your feeds, and provides several shortcodes for adding custom content in specific posts, pages, and just about anywhere in your theme. Ideal for adding copyright information, distribution policy, thank-you messages, custom links, special offers, etc.
+[Simple Custom Content](https://perishablepress.com/simple-custom-content/) enables you to add custom content to all of your posts and all of your feeds, and provides several shortcodes for adding custom content in specific posts, pages, and just about anywhere in your theme. Ideal for adding copyright information, distribution policy, thank-you messages, custom links, special offers, etc.
 
 **Options**
 
@@ -42,7 +42,9 @@ Additionally there is a "Restore Default Options" setting that basically does wh
 
 == Installation ==
 
-Upload and activate. Visit the SCS Settings page to add some custom content. Visit the [SCS Homepage](http://perishablepress.com/simple-custom-content/) for more information.
+Upload and activate. Visit the SCS Settings page to add some custom content. Visit the [SCS Homepage](https://perishablepress.com/simple-custom-content/) for more information.
+
+[More info on installing WP plugins](http://codex.wordpress.org/Managing_Plugins#Installing_Plugins)
 
 == Upgrade Notice ==
 
@@ -50,9 +52,14 @@ To upgrade SCS, remove old version and replace with new version. Nothing else ne
 
 == Screenshots ==
 
-Screenshots and more info available at the [SCS Homepage](http://perishablepress.com/simple-custom-content/#screenshots)
+Screenshots and more info available at the [SCS Homepage](https://perishablepress.com/simple-custom-content/#screenshots)
 
 == Changelog ==
+
+**20150507**
+
+* Tested with WP 4.2 + 4.3 (alpha)
+* Changed a few "http" links to "https"
 
 **20150315**
 
@@ -110,15 +117,15 @@ Screenshots and more info available at the [SCS Homepage](http://perishablepress
 
 == Frequently Asked Questions ==
 
-To ask a question, visit the [SCS Homepage](http://perishablepress.com/simple-custom-content/) or [contact me](http://perishablepress.com/contact/).
+To ask a question, visit the [SCS Homepage](https://perishablepress.com/simple-custom-content/) or [contact me](https://perishablepress.com/contact/).
 
 == Donations ==
 
 I created this plugin with love for the WP community. To show support, you can [make a donation](http://m0n.co/donate) or purchase one of my books: 
 
-* [The Tao of WordPress](http://wp-tao.com/)
-* [Digging into WordPress](http://digwp.com/)
-* [.htaccess made easy](http://htaccessbook.com/)
-* [WordPress Themes In Depth](http://wp-tao.com/wordpress-themes-book/)
+* [The Tao of WordPress](https://wp-tao.com/)
+* [Digging into WordPress](https://digwp.com/)
+* [.htaccess made easy](https://htaccessbook.com/)
+* [WordPress Themes In Depth](https://wp-tao.com/wordpress-themes-book/)
 
 Links, tweets and likes also appreciated. Thanks! :)
