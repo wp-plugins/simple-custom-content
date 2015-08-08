@@ -8,10 +8,10 @@
 	Author URI: http://monzilla.biz/
 	Donate link: http://m0n.co/donate
 	Contributors: specialk
-	Requires at least: 3.9
-	Tested up to: 4.2
+	Requires at least: 4.0
+	Tested up to: 4.3
 	Stable tag: trunk
-	Version: 20150507
+	Version: 20150808
 	Text Domain: scc
 	Domain Path: /languages/
 	License: GPL v2 or later
@@ -19,8 +19,8 @@
 
 if (!defined('ABSPATH')) die();
 
-$scs_wp_vers = '3.9';
-$scs_version = '20150507';
+$scs_wp_vers = '4.0';
+$scs_version = '20150808';
 $options = get_option('scs_options');
 
 function scs_i18n_init() {

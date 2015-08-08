@@ -8,10 +8,10 @@ Author: Jeff Starr
 Author URI: http://monzilla.biz/
 Donate link: http://m0n.co/donate
 Contributors: specialk
-Requires at least: 3.9
-Tested up to: 4.2
+Requires at least: 4.0
+Tested up to: 4.3
 Stable tag: trunk
-Version: 20150507
+Version: 20150808
 Text Domain: scc
 Domain Path: /languages/
 License: GPL v2 or later
@@ -55,6 +55,11 @@ To upgrade SCS, remove old version and replace with new version. Nothing else ne
 Screenshots and more info available at the [SCS Homepage](https://perishablepress.com/simple-custom-content/#screenshots)
 
 == Changelog ==
+
+**20150808**
+
+* Tested on WordPress 4.3
+* Updated minimum version requirement
 
 **20150507**
 
